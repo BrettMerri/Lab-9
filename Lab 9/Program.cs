@@ -48,7 +48,7 @@ namespace Lab_9
         {
             while (true) //Loop ContinueApp in case of an error
             {
-                Console.Write("Another batter? (y/n): ");
+                Console.Write("Do you want to test more circles? (y/n): ");
                 string input = Console.ReadLine().ToLower();
                 if (input == "y")
                 {
