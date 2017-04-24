@@ -16,49 +16,6 @@ namespace Lab_9
 
         #endregion
 
-        #region Properties
-
-        public double CircleRadius
-        {
-            get
-            {
-                return Radius;
-            }
-
-            set
-            {
-                Radius = value;
-            }
-        }
-
-        public double CircleCircumference
-        {
-            get
-            {
-                return Circumference;
-            }
-
-            set
-            {
-                Circumference = value;
-            }
-        }
-
-        public double CircleArea
-        {
-            get
-            {
-                return Area;
-            }
-
-            set
-            {
-                Area = value;
-            }
-        }
-
-        #endregion
-
         #region Constructors
 
         public Circle()
@@ -97,11 +54,6 @@ namespace Lab_9
         public string GetFormattedArea()
         {
             return String.Format("{0:0.00}", Area);
-        }
-
-        private string FormatNumber(double x)
-        {
-            return String.Format("{0:0.00}", x);
         }
 
         #endregion

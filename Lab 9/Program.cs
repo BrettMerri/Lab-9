@@ -15,7 +15,6 @@ namespace Lab_9
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
 
-
             Console.WriteLine("Welcome to the Circle Tester!");
 
             bool loop = true;
@@ -29,7 +28,7 @@ namespace Lab_9
                 if (!ContinueApp()) //Prompts user if he wants to continue. Set loop to false if use does not want to continue.
                     loop = false;
             }
-            Console.WriteLine($"Goodbye. You have created {CircleList.Count} Circle object(s).");
+            Console.WriteLine($"\nGoodbye. You have created {CircleList.Count} Circle object(s).");
         }
 
         public static double GetValidDouble()
@@ -56,10 +55,7 @@ namespace Lab_9
                     return true;
                 }
                 else if (input == "n")
-                {
-                    Console.WriteLine("Byebye!");
                     return false;
-                }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
