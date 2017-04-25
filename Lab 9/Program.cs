@@ -10,59 +10,41 @@ namespace Lab_9
     {
         static void Main(string[] args)
         {
-            Console.Title = "Circle Tester";
+            Console.Title = "Circle Tester"; //Set console title
 
+            //Set default console colors
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine("Welcome to the Circle Tester!");
 
-            bool loop = true;
-            List<Circle> CircleList = new List<Circle>();
+            bool loop = true; //Set loop to true
+
+            List<Circle> CircleList = new List<Circle>(); //Create a list of Circle objects named CircleList
             while (loop)
             {
-                Console.Write("Enter radius: ");
-                CircleList.Add(new Circle(GetValidDouble()));
-                Console.WriteLine($"Circumference: {CircleList.Last().GetFormattedCircumference()}");
-                Console.WriteLine($"Area: {CircleList.Last().GetFormattedArea()}");
+                Console.Write("Enter radius: "); //Prompts user to input radius
+                CircleList.Add(new Circle(ValidateConsoleInput.GetDoubleInRange(0, double.MaxValue))); //Validates user input is valid and in range and creates a new circle object with that radius input
+                Console.WriteLine($"Circumference: {CircleList.Last().GetFormattedCircumference()}"); //Writes the formatted circumference of the last added Circle in the CircleList
+                Console.WriteLine($"Area: {CircleList.Last().GetFormattedArea()}"); //Writes the formatted area of the last added Circle in the CircleList
                 if (!ContinueApp()) //Prompts user if he wants to continue. Set loop to false if use does not want to continue.
                     loop = false;
             }
-            Console.WriteLine($"\nGoodbye. You have created {CircleList.Count} Circle object(s).");
-        }
-
-        public static double GetValidDouble()
-        {
-            double input;
-            while (!double.TryParse(Console.ReadLine(), out input))
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("Please enter a valid input. Try again: ");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            return input;
+            Console.WriteLine($"\nGoodbye. You have created {CircleList.Count} Circle object(s)."); //Lets the user know how many circle objects were created while this application was running
         }
 
         public static bool ContinueApp()
         {
-            while (true) //Loop ContinueApp in case of an error
+            string[] Options = new string[] { "y", "n" };
+            Console.Write("Do you want to test more circles? (y/n): "); //Prompt user to type y or n
+            string input = ValidateConsoleInput.GetValidString(Options); //Gets validated string from the user that is either y or n.
+            if (input == "y") //If input is y, write new line and return true
             {
-                Console.Write("Do you want to test more circles? (y/n): ");
-                string input = Console.ReadLine().ToLower();
-                if (input == "y")
-                {
-                    Console.WriteLine();
-                    return true;
-                }
-                else if (input == "n")
-                    return false;
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Error: Input not y or n.\n");
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
+                Console.WriteLine();
+                return true;
             }
+            else //If inpus is n, return false
+                return false;
         }
 
     }

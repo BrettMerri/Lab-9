@@ -25,7 +25,7 @@ namespace Lab_9
             Area = 0;
         }
 
-        public Circle(double RadiusInput)
+        public Circle(double RadiusInput) //When a Circle object is created with a radius, immediately calculate the Circumference and Area.
         {
             Radius = RadiusInput;
             Circumference = GetCircumference();
@@ -38,22 +38,22 @@ namespace Lab_9
 
         public double GetCircumference()
         {
-            return 2 * Math.PI * Radius;
+            return 2 * Math.PI * Radius; //2 * Pi * r
         }
 
         public string GetFormattedCircumference()
         {
-            return String.Format("{0:0.00}", Circumference);
+            return String.Format("{0:0.00}", Circumference); //Return Circumference rounded to two decimal places
         }
 
         public double GetArea()
         {
-            return Math.PI * (Math.Pow(Radius, 2));
+            return Math.PI * (Math.Pow(Radius, 2)); //Pi * r ^ 2
         }
 
         public string GetFormattedArea()
         {
-            return String.Format("{0:0.00}", Area);
+            return String.Format("{0:0.00}", Area); //Return Area rounded to two decimal places
         }
 
         #endregion
